@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 
 export function Input() {
-    const [inputState, setInputState] = useState();
+    const [state, setState] = useState<any | null>(null);
 
-    const inputHandler = (e) => {
+    const handleOnchange = (e:any) => {
         e.preventDefault()
-        setInputState(e.target.value)
+        setState(e.target.value)
     }
-    const handlerSubmit = () => {
-        alert(inputState)
+
+    const handlerOnSubmit = (e:any) => {
+        console.log(state)
+        setState('')
+        e.preventDefault()
     }
-    return(
+
+   return (
        <div>
            <form>
-               <input onChange={inputHandler}/>
-               <button type={'submit'} onClick={handlerSubmit}>Submit</button>
+               <input type="text" onChange={handleOnchange} value={state}/>
+               <button type='submit' onClick={handlerOnSubmit}>click</button>
            </form>
        </div>
-    )
+   )
 }
