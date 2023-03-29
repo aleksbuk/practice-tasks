@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 
 export function Input() {
-    const [state, setState] = useState<any | null>(null);
+   const [name, setName] = useState<any | null>(null)
 
-    const handleOnchange = (e:any) => {
-        e.preventDefault()
-        setState(e.target.value)
+    const handleOnclick = (e:any) => {
+       setName(e.target.value)
     }
 
-    const handlerOnSubmit = (e:any) => {
-        console.log(state)
-        setState('')
-        e.preventDefault()
+    const handleOnSubmit = (e:any) => {
+       !name.length
+           ? (alert('Enter any data'))
+           : console.log(name)
+             e.preventDefault()
+             setName('')
     }
 
    return (
        <div>
            <form>
-               <input type="text" onChange={handleOnchange} value={state}/>
-               <button type='submit' onClick={handlerOnSubmit}>click</button>
+               <input type='text' value={name} onChange={handleOnclick}/>
+               <button type='submit' onClick={handleOnSubmit}>submit</button>
            </form>
        </div>
    )
