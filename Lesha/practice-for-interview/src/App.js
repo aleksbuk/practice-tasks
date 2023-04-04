@@ -1,10 +1,10 @@
 import './App.css';
-import { Input } from './components/Input/Input.tsx';
+import { Context } from './components/context/Context.tsx'
 
 function App() {
   return (
     <div className="App">
-      <Input/>
+        <Context />
     </div>
   );
 }
